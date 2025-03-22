@@ -71,9 +71,9 @@ export function ChallengeCard({ challenge }: ChallengeCardProps) {
 
         <DialogContent className="max-w-2xl">
           <DialogHeader>
-            <div className="flex items-center justify-between">
+            <div className="flex items-center ">
               <DialogTitle className="text-xl">{challenge.name}</DialogTitle>
-              <span className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs transition-colors ${difficultyColors[challenge.difficulty]}`}>
+              <span className={`mx-2.5 inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs transition-colors ${difficultyColors[challenge.difficulty]}`}>
                 {challenge.difficulty}
               </span>
             </div>

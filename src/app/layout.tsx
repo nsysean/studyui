@@ -17,8 +17,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "% | Black Bauhinia",
-  description: "% - An experimental CTF co-learning project.",
+  title: "ʕ•ᴥ•ʔ | Black Bauhinia",
+  description: "ʕ•ᴥ•ʔ - An experimental CTF co-learning project.",
 };
 
 export default function RootLayout({

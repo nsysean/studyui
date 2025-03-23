@@ -10,7 +10,7 @@ export const Logo = () => {
       className="ease-in-out flex shrink-0 items-center gap-2 text-xl font-semibold transition-colors duration-300 hover:text-primary"
       suppressHydrationWarning
     >
-      %
+      ʕ•ᴥ•ʔ
     </Link>
   );
 };

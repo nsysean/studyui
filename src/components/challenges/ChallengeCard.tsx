@@ -1,7 +1,7 @@
 "use client";
 
-import React from 'react';
-import { ExternalLink, Github } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { ExternalLink, Github, Trophy } from 'lucide-react';
 import {
   Dialog,
   DialogContent,
@@ -24,6 +24,12 @@ interface ChallengeCardProps {
   challenge: Challenge;
 }
 
+interface Solver {
+  userId: string;
+  name: string;
+  pfp: string;
+}
+
 export function ChallengeCard({ challenge }: ChallengeCardProps) {
   // Define difficulty badge colors
   const difficultyColors = {
@@ -31,6 +37,29 @@ export function ChallengeCard({ challenge }: ChallengeCardProps) {
     medium: "bg-yellow-500/20 text-yellow-500 border-yellow-500/30",
     hard: "bg-red-500/20 text-red-500 border-red-500/30"
   };
+
+  const [solvers, setSolvers] = useState<Solver[]>([]);
+  const [loadingSolvers, setLoadingSolvers] = useState<boolean>(true);
+
+  // Use useEffect to fetch solvers for this challenge from the API
+  useEffect(() => {
+    async function fetchSolvers() {
+      try {
+        const res = await fetch(`/api/challenges/${challenge.name}`);
+        if (!res.ok) {
+          throw new Error("Failed to fetch solvers");
+        }
+        const data = await res.json();
+        setSolvers(data.solvedBy);
+      } catch (error) {
+        console.error("Error fetching solvers:", error);
+      } finally {
+        setLoadingSolvers(false);
+      }
+    }
+
+    fetchSolvers();
+  }, [challenge.name]);
 
   return (
     <div className="border p-4 hover:bg-secondary/50 transition-colors duration-200">
@@ -83,6 +112,41 @@ export function ChallengeCard({ challenge }: ChallengeCardProps) {
           </DialogHeader>
           <div className="mt-4">
             <p className="mb-4">{challenge.description}</p>
+            {/* Solvers Section */}
+            <div className="mt-6 border-t border-border pt-4">
+              <h3 className="text-base font-semibold flex items-center mb-3">
+                <Trophy className="h-4 w-4 mr-2" />
+                Solvers ({loadingSolvers ? "Loading..." : solvers.length})
+              </h3>
+
+              {loadingSolvers ? (
+                <p className="text-sm text-muted-foreground">Loading solvers...</p>
+              ) : solvers.length > 0 ? (
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                  {solvers.map((solver) => (
+                    <div
+                      key={solver.userId}
+                      className="flex items-center p-2 bg-secondary/20 rounded-none"
+                    >
+                      <div className="flex-shrink-0 h-8 w-8 flex items-center justify-center bg-secondary/50 rounded-full overflow-hidden">
+                          <img
+                            src={solver.pfp}
+                            alt={solver.name}
+                            className="h-full w-full object-cover"
+                          />
+                      </div>
+                      <div className="ml-2 truncate">
+                        <div className="text-sm font-medium">{solver.name}</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <p className="text-sm text-muted-foreground">
+                  No solvers yet. Be the first one!
+                </p>
+              )}
+            </div>
             <div className="flex justify-between items-center border-t pt-4 mt-4">
               <div className="text-sm text-muted-foreground">
                 <span className="font-semibold">Difficulty:</span> {challenge.difficulty}

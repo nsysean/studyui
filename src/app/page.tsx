@@ -4,6 +4,8 @@ import Link from "next/link";
 import { ArrowRight, Calendar, Flag, Trophy, User } from "lucide-react";
 import c from "../../public/week0.json"
 
+type Difficulty = 'easy' | 'medium' | 'hard';
+
 // Current challenge set info
 const currentChallengeSet = c
 
@@ -99,7 +101,7 @@ export default function Home() {
                   >
                     <span>{challenge.name}</span>
                     <span
-                      className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs transition-colors ${difficultyClasses[challenge.difficulty]}`}
+                      className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs transition-colors ${difficultyClasses[challenge.difficulty as Difficulty]}`}
                     >
                       {challenge.difficulty}
                     </span>

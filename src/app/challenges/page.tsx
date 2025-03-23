@@ -8,7 +8,7 @@ import { useSearchParams } from 'next/navigation';
 import c from "../../../public/week0.json";
 
 // The challenges data from your input
-const challenges = c.challenges;
+const challenges: Challenge[] = c.challenges as any;
 
 // Mock data for challenge sets
 const challengeSets = {

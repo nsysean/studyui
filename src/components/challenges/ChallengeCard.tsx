@@ -99,10 +99,10 @@ export function ChallengeCard({ challenge }: ChallengeCardProps) {
               {challenge.contest}
             </DialogDescription>
           </DialogHeader>
-          <div className="mt-4">
-            <p className="mb-4">{challenge.description}</p>
+          <div className="">
+            <p className="">{challenge.description}</p>
             {/* Solvers Section */}
-            <div className="mt-6 border-t border-border pt-4">
+            <div className="mt-4 border-t border-border pt-4">
               <h3 className="text-base font-semibold flex items-center mb-3">
                 <Trophy className="h-4 w-4 mr-2" />
                 Solvers ({loading ? "Loading..." : solvers.length})

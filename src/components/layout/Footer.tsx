@@ -18,7 +18,7 @@ export function Footer() {
       <div className="mx-auto max-w-(--breakpoint-md) px-4">
         <div className="flex flex-col items-center justify-center gap-y-2 sm:flex-row sm:justify-between">
           <div className="flex items-center">
-            <p className="z-1 text-center text-sm mix-blend-difference" suppressHydrationWarning>
+            <p className="z-1 text-center text-sm" suppressHydrationWarning>
               © {currentYear} Black Bauhinia
             </p>
           </div>

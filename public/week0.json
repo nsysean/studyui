@@ -1,8 +1,23 @@
 {
-  "title": "[web] study week 0",
+    
+  "title": "[Web] Study Week 0",
   "authors": ["ensy"],
+  "dateRange": "March 24 - March 30, 2025",
   "description": "This week focuses on application logic flaws and vulnerabilities of web applications.",
-  "start": "2025-03-23T04:21:53.085Z",
+"featuredChallenges": [
+{
+    "name": "login",
+    "difficulty": "easy"
+},
+{
+    "name": "jsonweirdtoken",
+    "difficulty": "medium"
+},
+{
+    "name": "blogdog",
+    "difficulty": "hard"
+}],
+"start": "2025-03-23T04:21:53.085Z",
   "finish": "2025-03-23T04:21:53.085Z",
   "githubLink": "https://github.com/blackb6a/intensive-study/tree/main/week0-web",
   "challenges": [

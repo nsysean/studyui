@@ -9,6 +9,7 @@ import { Menu, X } from 'lucide-react';
 
 const navItems = [
   { name: 'Challenges', path: '/challenges' },
+  { name: 'Leaderboard', path: '/leaderboard' },
   { name: 'Archive', path: 'https://github.com/blackb6a/intensive-study/' },
 ];
 

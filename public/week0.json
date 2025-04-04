@@ -92,6 +92,13 @@
       "difficulty": "medium"
     },
     {
+      "name": "greeter",
+      "contest": "BsidesHK CTF 2025",
+      "description": "I made a simple app which greets people by their names!",
+      "link": "./sets/medium/greeter/dist/",
+      "difficulty": "medium"
+    },
+    {
       "name": "imagestore",
       "contest": "TeamItaly CTF 2022",
       "description": "I keep too many photos of pizzas on my computer and my drive is almost full. Unfortunately I can't simply upload them to Google Photos because I don't like public cloud. So I decided to write my own CLI service to store all my images! Can you read /flag?",

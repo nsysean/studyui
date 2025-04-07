@@ -93,8 +93,8 @@
     },
     {
       "name": "greeter",
-      "contest": "BsidesHK CTF 2025",
-      "description": "I made a simple app which greets people by their names!",
+      "contest": "Original task from ensy",
+      "description": "I made a simple app which greets people by their names! Modified from BsidesHK CTF 2025",
       "link": "./sets/medium/greeter/dist/",
       "difficulty": "medium"
     },
